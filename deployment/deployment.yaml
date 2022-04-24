@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acct-mgt-api-k8s
+  labels:
+    app: acct-mgt-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: acct-mgt-api
+  template:
+    metadata:
+      labels:
+        app: acct-mgt-api
+    spec:
+      containers:
+        - name: account-mgt-api
+          image: account-management-image
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          command: [ 'java', '-jar', '/opt/account-management/account-management-api.jar' ]
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5

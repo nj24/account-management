@@ -1,0 +1,17 @@
+# Access your app on http://account.managment.com/swagger-ui.html
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: acct-mgt-api-ingress
+spec:
+  rules:
+    - host: account.managment.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: acct-mgt-api-service
+                port:
+                  number: 8080
