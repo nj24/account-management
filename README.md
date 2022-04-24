@@ -17,6 +17,8 @@ This is a simple POC for an Account Management application using docker with K8s
     Docker
     Kubernetes
 
+### Run the application 
+    `mvn spring-boot:run`
 
 ### Project setup instructions
 To start using this project use the following commands:
