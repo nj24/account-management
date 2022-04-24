@@ -30,11 +30,12 @@ To start using this project use the following commands:
             // To evaluate docker from minikube -> eval $(minikube docker-env)
 
     Step 3: Build the image using Dockerfile ( Use your choice name but do change in deployment file )
-            $PATH_TO_PROJECT/ docker build -t fitness-api-image .
+            cd $PATH_TO_PROJECT
+            docker build -t account-management-image .
 
     Step 4: Apply all deployments inside deployment folder.
 
-            kubectl apply -R -f ${Path_To_Project}/deployment
+            kubectl apply -R -f deployment
 
     Step 5: Verify the deployments applied successfully
 
